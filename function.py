@@ -4,9 +4,6 @@ import psutil
 from tkinter import messagebox
 
 
-
-
-
 def close_excel():
     if 'EXCEL.EXE' in (m.name() for m in psutil.process_iter()):
         command = 'taskkill /IM Excel.exe'
@@ -31,11 +28,11 @@ def saving_excel(file, txt, i):
                 file.save(txt)
             return txt
         except PermissionError:
-            messagebox.showerror('Ошибка', 'Файл не может быть создан')
+            messagebox.showerror('ERROR', 'The file cannot be created')
             exit()
         except:
-            messagebox.showerror('Ошибка', 'Файл не может так называться')
-            messagebox.showinfo('Сообщение', 'Файлу будет присовено другое имя')
+            messagebox.showerror('ERROR', 'The file cannot be named that way')
+            messagebox.showinfo('Message', 'The file will be given a different name')
             txt = '31'
 
 
